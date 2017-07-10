@@ -1,0 +1,102 @@
+// set bgc color
+$color_space: #070F4E
+
+/*  set size mode and if w = ture
+    then h = w                    */
+
+@mixin size($w,$h:$w)
+    width: $w
+    height: $h
+
+/*  set pos mode */
+@mixin pos($l,$t)
+    left: $l
+    top: $t
+
+/*  set circle mode with size mode
+    use border-radius:50% create circle */
+@mixin circle($r)
+    +size($r)
+    border-radius: 50%
+
+/*  set absolute center mode
+    The translate() method moves an element from its current position 
+    (according to the parameters given for the X-axis and the Y-axis).*/
+@mixin ab_center
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50% )
+
+*
+
+html,body
+    width: 100%
+    height: 100%
+    padding: 0
+    margin: 0
+    background-color: $color_space
+
+.space
+    width: 700px
+    height: 700px
+    border-radius: 50%
+    //  sass lighten() 
+    background-color: lighten($color_space,10)
+    /*  filter 濾鏡 blur 模糊化
+        Applies a blur effect to the image. A larger value will create more blur. 
+        If no value is specified, 0 is used.    */
+    filter: blur(50px)
+    +ab_center
+
+.moon
+    background-color: #fff
+    +circle(400px)
+    +ab_center
+    box-shadow: -40px -40px darken(#fff,10) inset
+
+.hole
+    +circle(90px)
+    background-color: #ccc
+    box-shadow: 10px 10px darken(#ccc,10) inset
+    +ab_center
+    //set hole obj 1~4
+    &:nth-child(1)
+        +circle(100px)
+        +pos(120px,130px)
+    &:nth-child(2)
+        +circle(50px)
+        +pos(230px,290px)
+    &:nth-child(3)
+        +circle(60px)
+        +pos(270px,240px)
+    &:nth-child(4)
+        +circle(40px)
+        +pos(280px,150px)
+
+.red
+    background-color: #f23
+    +circle(50px)
+    box-shadow: -10px -10px darken(#f23,20) inset
+    +ab_center
+    //The z-index property specifies the stack order of an element.
+    z-index: 100
+
+.yellow
+    background-color: #fe3
+    +circle(70px)
+    box-shadow: -10px -10px darken(#fe3,20) inset
+    +ab_center
+    z-index: 100
+
+.trace1
+    +circle(700px)
+    border: dashed 1px white
+    +ab_center
+    opacity: 0.6
+
+.trace2
+    +circle(540px)
+    border: dashed 1px white
+    +ab_center
+    opacity: 0.6

@@ -1,3 +1,12 @@
+@charset "UTF-8";
+/*  set size mode and if w = ture
+    then h = w                    */
+/*  set pos mode */
+/*  set circle mode with size mode
+    use border-radius:50% create circle */
+/*  set absolute center mode
+    The translate() method moves an element from its current position
+    (according to the parameters given for the X-axis and the Y-axis).*/
 html, body {
   width: 100%;
   height: 100%;
@@ -10,6 +19,9 @@ html, body {
   height: 700px;
   border-radius: 50%;
   background-color: #0b187d;
+  /*  filter 濾鏡 blur 模糊化
+        Applies a blur effect to the image. A larger value will create more blur.
+        If no value is specified, 0 is used.    */
   filter: blur(50px);
   position: absolute;
   left: 50%;
