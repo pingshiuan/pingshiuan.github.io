@@ -1,0 +1,1 @@
+function update(){stars.forEach(function(t){var e=t.r,a=t.speed*time*2,s=e*Math.cos(a/360*(2*Math.PI))-t.width/2,r=e*Math.sin(a/360*(2*Math.PI))-t.width/2;$(t.el).css("transform","translate("+s+"px,"+r+"px)"),time+=1})}var time=0,stars=[{el:".red",r:270,speed:.7,width:50},{el:".yellow",r:350,speed:.2,width:70}];setInterval(update,30);
