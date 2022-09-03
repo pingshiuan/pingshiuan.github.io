@@ -17,6 +17,8 @@ window.addEventListener('load', function () {
                 sourceSelect.onchange = () => {
                     selectedDeviceId = sourceSelect.value;
                     codeReader.reset();
+                    const cam = document.getElementById('camDiv')
+                    cam.style.display = 'none'
                 }
 
                 const sourceSelectPanel = document.getElementById('sourceSelectPanel')
