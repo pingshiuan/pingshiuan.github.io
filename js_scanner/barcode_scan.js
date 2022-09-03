@@ -16,6 +16,7 @@ window.addEventListener('load', function () {
 
                 sourceSelect.onchange = () => {
                     selectedDeviceId = sourceSelect.value;
+                    codeReader.reset();
                 }
 
                 const sourceSelectPanel = document.getElementById('sourceSelectPanel')
@@ -30,6 +31,9 @@ window.addEventListener('load', function () {
                     console.log(result)
                     document.getElementById('result').textContent = result.text;
                     document.getElementById('seq').value = result.text;
+                    codeReader.reset();
+                    const cam = document.getElementById('camDiv')
+                    cam.style.display = 'none'
                 }).catch((err) => {
                     console.error(err)
                     //document.getElementById('result').textContent = err
